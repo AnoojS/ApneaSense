@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Apnea Sense</title>
+</head>
+
+<body class="bg-green-100">
+    <section class="text-gray-600 body-font">
+        <div class="container px-24 py-24 mx-auto flex flex-wrap items-center">
+            <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                <h1 class="title-font font-medium text-3xl text-gray-900">Welcome to Apnea Sense</h1>
+                <p class="leading-relaxed mt-4">Your Reliable Companion for Apnea Detection and Care.</p>
+                <img src="{% static 'logo.jpg' %}" alt="" class="leading-relaxed ml-10 mt-8" height="280" width="280">
+            </div>
+            <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign In</h2>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="relative mb-4">
+                        <label for="username" class="leading-7 text-sm text-gray-600">User Name</label>
+                        {% with username_input=form.username %}
+                        <input type="{{ username_input.type }}" id="{{ username_input.id_for_label }}"
+                            name="{{ username_input.name }}"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        {% endwith %}
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="password" class="leading-7 text-sm text-gray-600">Password</label>
+                        {% with password_input=form.password %}
+                        <input type="password" id="{{ password_input.id_for_label }}" name="{{ password_input.name }}"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        {% endwith %}
+                    </div>
+                    <button type="submit"
+                        class="text-white bg-green-500 border-0 py-2 px-8 ml-2 mr-10 focus:outline-none hover:bg-green-600 rounded text-lg">Sign
+                        In</button>
+                    <button type="submit"
+                        class="text-white bg-green-500 border-0 py-2 px-8 ml-20 focus:outline-none hover:bg-green-600 rounded text-lg">Register</button>
+                </form>
+                <p class="text-xs text-gray-500 mt-3"></p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

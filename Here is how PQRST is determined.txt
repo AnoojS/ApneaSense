@@ -1,0 +1,18 @@
+Here is how PQRST is determined:
+1.
+Signal is filtered with FIR and bandpass with cut-off frequency of 3–45 Hz.
+
+2.
+After the signal is filtered, R-peaks are detected by using Hamilton Segmenter.
+
+3.
+The number of R-peaks is next accumulated and divided by the recording time to obtain the heart-rate value in BPM (beats per minute).
+
+4.
+From each R-peaks point, Q point is obtained by detecting the lowest signal value in the interval of 80 ms before R point, while S point is obtained by detecting the lowest signal value in the interval of 80 ms after R point. Thus, QRS complex is obtained.
+
+5.
+P wave is obtained by detecting the highest signal value in the interval of 200 ms before Q point.
+
+6.
+T wave is obtained by detecting the highest signal value in the interval of 400 ms after S point.
